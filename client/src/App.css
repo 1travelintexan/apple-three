@@ -2,8 +2,22 @@ body {
   margin: 0;
   padding: 0;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
 a {
   margin: 5px;
+}
+footer {
+  background-color: #5d110b;
+  color: white;
+  min-height: 20vh;
 }
 .open {
   background-color: rgba(105, 162, 105, 0.519);
@@ -23,6 +37,7 @@ a {
   padding: 1rem;
   font-family: "Arial", sans-serif;
   width: 80%;
+  margin: 10px;
 }
 /* Date tiles */
 .react-calendar__tile {
@@ -104,4 +119,20 @@ nav {
 .nav-logo {
   height: 10vh;
   border-radius: 10vh;
+}
+/* signup and login page classes */
+.signup-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40vh;
+}
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+  min-height: 70vh;
 }
