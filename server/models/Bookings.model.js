@@ -2,12 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const bookingSchema = new Schema(
   {
-    email: {
-      type: String,
-      required: [true, "Email is required."],
-      unique: true,
-      lowercase: true,
-      trim: true,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     dates: {
       type: [Date],
@@ -21,5 +19,4 @@ const bookingSchema = new Schema(
 );
 
 const BookingModel = model("Booking", bookingSchema);
-
 module.exports = BookingModel;
