@@ -1,3 +1,3 @@
 export const ContactPage = () => {
-  return <div>ContactPage</div>;
+  return <div className="body-container">ContactPage</div>;
 };

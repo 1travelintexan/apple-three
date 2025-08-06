@@ -7,17 +7,39 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0;
+h6,
+p {
+  margin: 5px;
   padding: 0;
 }
 a {
   margin: 5px;
+  text-decoration: none;
+  color: rgb(48, 189, 244);
+  font-weight: bold;
+}
+a:hover {
+  color: white;
+  text-shadow: 5px 5px 10px black;
 }
 footer {
   background-color: #5d110b;
   color: white;
   min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+footer section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.leaflet-container {
+  width: 25vw;
+  height: 25vh;
 }
 .open {
   background-color: rgba(105, 162, 105, 0.519);
@@ -28,21 +50,23 @@ footer {
   justify-content: center;
   flex-direction: column;
   align-self: stretch;
+  margin: 20px 0px;
+  min-height: 70vh;
 }
 
 /* Change background of the entire calendar */
 .react-calendar {
   background-color: #333131;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 10px;
   font-family: "Arial", sans-serif;
   width: 80%;
-  margin: 10px;
+  margin: 5px;
 }
 /* Date tiles */
 .react-calendar__tile {
   text-align: center;
-  height: 5rem;
+  height: 4rem;
 }
 
 /* Highlight selected day */
@@ -113,12 +137,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding-right: 10px;
   background-color: #5d110b;
 }
 .nav-logo {
-  height: 10vh;
-  border-radius: 10vh;
+  height: 12vh;
+  border-radius: 30%;
+  margin: 0;
+  padding: 10px;
 }
 /* signup and login page classes */
 .signup-box {
@@ -134,5 +160,8 @@ nav {
   flex-direction: column;
   justify-content: space-around;
   flex: 1;
+  min-height: 70vh;
+}
+.body-container {
   min-height: 70vh;
 }

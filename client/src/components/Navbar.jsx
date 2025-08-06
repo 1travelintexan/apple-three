@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import appleLogo from "../assets/apple-logo.png";
+import cherryLogo from "../assets/cherry3-logo-2.png";
 const Navbar = () => {
   return (
     <nav>
       <Link to="/">
-        <img src={appleLogo} alt="logo" className="nav-logo" />
+        <img src={cherryLogo} alt="logo" className="nav-logo" />
       </Link>
       <section>
         <Link to="/contact">

@@ -1,3 +1,3 @@
 export const PricesPage = () => {
-  return <div>PricesPage</div>;
+  return <div className="body-container">PricesPage</div>;
 };

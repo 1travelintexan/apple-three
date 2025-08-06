@@ -107,7 +107,7 @@ function MyCalendar() {
       />
       <p>
         Once you book, you will recieve a confirmation email with all the
-        information needed for your stay :)
+        information needed for your stay
       </p>
       <Button
         variant="contained"
