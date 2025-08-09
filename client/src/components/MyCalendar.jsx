@@ -4,6 +4,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+import Confetti from "./Confetti";
+
 function MyCalendar() {
   const [requestedDates, setRequestedDates] = useState([
     // "2025-07-01",
@@ -13,6 +15,7 @@ function MyCalendar() {
     // new Date(2025, 6, 25), //july 25th 2025
     // new Date(2025, 6, 1), //july 1st 2025
   ]);
+  const [dropConfetti, setDropConfetti] = useState(false);
   useEffect(() => {
     try {
       getAllBookings();
@@ -50,6 +53,11 @@ function MyCalendar() {
       console.log("booking created", data);
       await getAllBookings();
       toast("Booking Successful");
+      //drop confetti when successful
+      setDropConfetti(true);
+      setTimeout(() => {
+        setDropConfetti(false);
+      }, 5000);
     } catch (error) {
       console.log(error);
     }
@@ -74,6 +82,7 @@ function MyCalendar() {
   };
   return (
     <div className="calendar-container">
+      {dropConfetti ? <Confetti /> : null}
       <ToastContainer />
       <h2>Available Days:</h2>
       <Calendar
