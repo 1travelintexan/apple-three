@@ -48,7 +48,7 @@ router.post("/signup", (req, res, next) => {
     .then((foundUser) => {
       // If the user with the same email already exists, send an error response
       if (foundUser) {
-        res.status(400).json({ message: "User already exists." });
+        res.status(400).json({ message: "Email already exists" });
         return;
       }
 
@@ -67,9 +67,14 @@ router.post("/signup", (req, res, next) => {
 
       // Create a new object that doesn't expose the password
       const user = { email, username, _id };
+      // Create a JSON Web Token and sign it
+      const authToken = jwt.sign(user, process.env.TOKEN_SECRET, {
+        algorithm: "HS256",
+        expiresIn: "30d",
+      });
 
       // Send a json response containing the user object
-      res.status(201).json(user);
+      res.status(201).json({ user, authToken });
     })
     .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
 });
@@ -106,13 +111,13 @@ router.post("/login", (req, res, next) => {
         // Create a JSON Web Token and sign it
         const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
           algorithm: "HS256",
-          expiresIn: "6h",
+          expiresIn: "30d",
         });
 
         // Send the token as the response
         res.status(200).json({ authToken: authToken });
       } else {
-        res.status(401).json({ message: "Unable to authenticate the user" });
+        res.status(401).json({ message: "Invalid Password" });
       }
     })
     .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
