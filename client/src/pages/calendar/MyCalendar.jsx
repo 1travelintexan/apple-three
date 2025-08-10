@@ -1,10 +1,11 @@
+import "./calendar.css";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import Confetti from "./Confetti";
+import Confetti from "../../components/Confetti";
 
 function MyCalendar() {
   const [requestedDates, setRequestedDates] = useState([

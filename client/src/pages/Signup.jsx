@@ -3,11 +3,14 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-export const Signup = () => {
+export const Signup = ({ setAuthToken }) => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
+  const nav = useNavigate();
   const handleSignup = async (e) => {
     e.preventDefault();
     const userToAddToDB = {
@@ -21,9 +24,12 @@ export const Signup = () => {
         userToAddToDB
       );
       console.log("user added to DB", data);
+      localStorage.setItem("authToken", data.authToken);
+      setAuthToken(data.authToken);
       nav("/");
     } catch (error) {
       console.log(error);
+      setErrorMessage(error.response.data.message);
     }
   };
   return (
@@ -56,9 +62,10 @@ export const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p className="error">{errorMessage}</p>
         <Button
           onClick={handleSignup}
-          variant="contained"
+          variant="outlined"
           endIcon={<SendIcon />}
           size="large"
         >

@@ -1,0 +1,90 @@
+.open {
+  background-color: rgba(105, 162, 105, 0.519);
+}
+.calendar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: stretch;
+  margin: 20px 0px;
+  min-height: 70vh;
+}
+
+/* Change background of the entire calendar */
+.react-calendar {
+  background-color: #333131;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Arial", sans-serif;
+  width: 80%;
+  margin: 5px;
+}
+/* Date tiles */
+.react-calendar__tile {
+  text-align: center;
+  height: 4rem;
+}
+
+/* Highlight selected day */
+.react-calendar__tile--active {
+  background: #4840db;
+  color: rgb(187, 185, 185);
+}
+
+/* Hover effect */
+.react-calendar__tile:hover {
+  background-color: #ddd;
+  border-radius: 0.5rem;
+}
+
+/* Selected range */
+.react-calendar__tile--range {
+  background: #28205a;
+  color: rgb(254, 251, 251);
+}
+
+/* Weekday labels */
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  text-decoration: none;
+  color: #faf2f2;
+  font-size: 2.5rem;
+}
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #ecebf6;
+  color: rgb(32, 11, 193);
+}
+
+/* Weekday label row */
+.react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* .react-calendar__month-view__weekdays__weekday {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  color: #6c63ff;
+}*/
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+/* Style all disabled tiles (e.g. unavailable dates) */
+/* .react-calendar__tile--disabled {
+  background-color: #b64750; 
+  color: #721c24; 
+} */
+.close {
+  background-color: rgba(113, 37, 51, 0.725);
+  text-decoration: line-through;
+}
+/* weekend days style  */
+/* .weekend {
+  border: 1px solid rgb(29, 28, 28);
+  background-color: #565656;
+} */

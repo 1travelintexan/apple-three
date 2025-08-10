@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import cherryLogo from "../assets/cherry3-logo-2.png";
-const Navbar = () => {
+
+const Navbar = ({ authToken, handleLogout }) => {
   return (
     <nav>
       <Link to="/">
@@ -20,12 +21,20 @@ const Navbar = () => {
         <Link to="/faq">
           <Button variant="outlined">FAQ</Button>
         </Link>
-        <Link to="/signup">
-          <Button variant="outlined">Signup</Button>
-        </Link>
-        <Link to="/login">
-          <Button variant="outlined">Login</Button>
-        </Link>
+        {authToken ? (
+          <Button variant="outlined" onClick={handleLogout} color="error">
+            Logout
+          </Button>
+        ) : (
+          <>
+            <Link to="/signup">
+              <Button variant="outlined">Signup</Button>
+            </Link>
+            <Link to="/login">
+              <Button variant="outlined">Login</Button>
+            </Link>
+          </>
+        )}
       </section>
     </nav>
   );
